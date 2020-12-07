@@ -33,11 +33,12 @@ public class Range implements IntegerSequence {
   }
 
   public int next() {
-    if (this.current.hasNext()) {
+    if (hasNext()) {
       current++;
       return (current - 1);
     } else {
-      current++
+      current++;
       throw new NoSuchElementException(current + " is not within the range!");
     }
+  }
 }
