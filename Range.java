@@ -25,7 +25,7 @@ public class Range implements IntegerSequence {
   }
 
   public boolean hasNext() {
-    if ((this.current <= this.end) && (this.current++ >= start)) {
+    if ((this.current++ <= this.end) && (this.current++ >= start)) {
       return true;
     } else {
       return false;
@@ -38,7 +38,7 @@ public class Range implements IntegerSequence {
       return (current - 1);
     } else {
       current++;
-      throw new NoSuchElementException(current + " is not within the range!");
+      throw new NoSuchElementException((current - 1) + " is not within the range!");
     }
   }
 }
