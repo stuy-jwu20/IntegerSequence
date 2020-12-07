@@ -25,16 +25,19 @@ public class Range implements IntegerSequence {
   }
 
   public boolean hasNext() {
-    if ((this.current++ <= this.end) && (this.current++ >= start)) {
+    if ((this.current <= this.end) && (this.current++ >= start)) {
       return true;
     } else {
-      current++;
       return false;
     }
   }
 
   public int next() {
-    current++;
-    return current;
-  }
+    if (this.current.hasNext()) {
+      current++;
+      return (current - 1);
+    } else {
+      current++
+      throw new NoSuchElementException(current + " is not within the range!");
+    }
 }
