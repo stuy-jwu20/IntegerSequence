@@ -32,7 +32,8 @@ public class Range implements IntegerSequence {
     }
   }
 
-  public int next()
+  public int next() {
     current++;
     return current;
+  }
 }
