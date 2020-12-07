@@ -20,4 +20,15 @@ public class Range implements IntegerSequence {
     }
     return rangeLength;
   }
+
+  public boolean hasNext() {
+    current = start;
+    if (current++ <= end) {
+      return true;
+    } else {
+      System.out.println(current);
+      current++;
+      throw NoSuchElementException;
+    }
+  }
 }
