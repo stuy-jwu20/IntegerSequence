@@ -5,17 +5,15 @@ public class Range implements IntegerSequence {
 
   public Range(int start, int end) {
     if (start > end) {
-      System.out.println("You wanted to start with " + start + " but it's greater than the ending, which is " + end ". Please make sure that your starting value is less than the end.")
-      throw IllegalArgumentException;
+      throw new IllegalArgumentException("You wanted to start with " + start + " but it's greater than the ending, which is " + end + ". Please make sure that your starting value is less than the end.");
     }
     this.start = start;
     this.end = end;
-    current = start;
+    current = this.start;
   }
 
   public void reset() {
-    start = 0;
-    end = 0;
+    current = this.start;
   }
 
   public int length() {
@@ -27,12 +25,11 @@ public class Range implements IntegerSequence {
   }
 
   public boolean hasNext() {
-    if (current++ <= end) {
+    if ((this.current++ <= this.end) && (this.current++ >= start)) {
       return true;
     } else {
-      System.out.println(current);
       current++;
-      throw NoSuchElementException;
+      return false;
     }
   }
 
