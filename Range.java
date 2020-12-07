@@ -12,4 +12,12 @@ public class Range implements IntegerSequence {
     start = 0;
     end = 0;
   }
+
+  public int length() {
+    int rangeLength = 0;
+    for (int i = start; i <= end; i++) {
+      rangeLength++;
+    }
+    return rangeLength;
+  }
 }
