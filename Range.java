@@ -38,7 +38,7 @@ public class Range implements IntegerSequence {
       return (current - 1);
     } else {
       current++;
-      throw new NoSuchElementException((current - 1) + " is not within the range between " + start + " and " + end ".");
+      throw new NoSuchElementException((current - 1) + " is not within the range between " + start + " and " + end + ".");
     }
   }
 }
