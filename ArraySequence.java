@@ -6,11 +6,18 @@ public class ArraySequence implements IntegerSequence {
 
   public ArraySequence(int [] other) {
     currentIndex = 0;
-    data = other;
+    data = other.clone();
   }
 
   public ArraySequence(IntegerSequence otherseq) {
-
+    currentIndex = 0;
+    data = new int[otherseq.length()];
+    while (otherseq.hasNext()) {
+      data[currentIndex] = otherseq.next();
+      currentIndex++;
+    }
+    this.reset();
+    otherseq.reset();
   }
 
   public boolean hasNext() {
