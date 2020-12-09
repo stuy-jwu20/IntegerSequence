@@ -25,11 +25,7 @@ public class Range implements IntegerSequence {
   }
 
   public boolean hasNext() {
-    if ((this.current <= this.end) && (this.current >= this.start)) {
-      return true;
-    } else {
-      return false;
-    }
+    return current <= this.end;
   }
 
   public int next() {

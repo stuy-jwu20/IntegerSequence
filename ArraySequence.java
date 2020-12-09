@@ -1,27 +1,26 @@
 import java.util.NoSuchElementException;
-
 public class ArraySequence implements IntegerSequence {
   private int currentIndex;
-  private int []data;
+  private int[] data;
 
   public ArraySequence(int [] other) {
-    currentIndex = 0;
-    data = other.clone();
+    this.data = other;
+    this.currentIndex = 0;
   }
 
   public ArraySequence(IntegerSequence otherseq) {
-    currentIndex = 0;
-    data = new int[otherseq.length()];
-    while (otherseq.hasNext()) {
-      data[currentIndex] = otherseq.next();
-      currentIndex++;
-    }
-    this.reset();
-    otherseq.reset();
-  }
+  		otherseq.reset();
+  		data = new int[otherseq.length()];
+  		int counter = 0;
+  		while (otherseq.hasNext()) {
+  			this.data[counter] = otherseq.next();
+  			counter++;
+  		}
+  		otherseq.reset();
+  	}
 
   public boolean hasNext() {
-    return (currentIndex < data.length);
+    return currentIndex < data.length;
   }
 
   public int next() {
@@ -30,7 +29,7 @@ public class ArraySequence implements IntegerSequence {
       return data[currentIndex-1];
     } else {
       currentIndex++;
-      throw new NoSuchElementException((currentIndex - 1) + " is not within the range of this sequence.");
+      throw new NoSuchElementException(currentIndex + " is out of range.");
     }
   }
 
