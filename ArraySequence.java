@@ -4,7 +4,7 @@ public class ArraySequence implements IntegerSequence {
   private int[] data;
 
   public ArraySequence(int [] other) {
-    this.data = other;
+    this.data = other.clone();
     this.currentIndex = 0;
   }
 
